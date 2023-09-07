@@ -1,8 +1,8 @@
 import "./globals.scss";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const font = Montserrat({ weight: ["100", "300", "400", "500", "700", "900"], subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: "Travel Portal",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="pl">
-            <body className={inter.className}>{children}</body>
+            <body className={font.className}>{children}</body>
         </html>
     );
 }
