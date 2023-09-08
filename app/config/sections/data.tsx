@@ -19,28 +19,31 @@ export const SectionsContent: SectionType[] = [
     {
         id: hotel.id,
         heading: "Most Popular Tours",
-        subHeading: "Client stealth iteration monetization distuprite channels. Bla bla bla",
+        subHeading:
+            "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text.",
         shouldBeRow: true,
         visulContent: <PopularPlaces />,
     },
     {
         id: reviews.id,
-        heading: "Why Choose Our Trip",
-        subHeading: "Client stealth iteration monetization distuprite channels. Bla bla bla",
+        heading: "Tourist reviews",
+        subHeading:
+            "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form",
         shouldBeRow: true,
         visulContent: <Reviews />,
     },
     {
         id: blog.id,
-        heading: "Why Choose Our Trip",
-        subHeading: "Client stealth iteration monetization distuprite channels. Bla bla bla",
+        heading: "Our Blog",
+        subHeading:
+            "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.",
         shouldBeRow: true,
         visulContent: <Blog />,
     },
     {
         id: contact.id,
-        heading: "Why Choose Our Trip",
-        subHeading: "Client stealth iteration monetization distuprite channels. Bla bla bla",
+        heading: "Subscribe to our newsletter",
+        subHeading: "I must explain to you how all the misaken idea of denouncing pleasure.",
         shouldBeRow: true,
         visulContent: <Newsletter />,
     },
