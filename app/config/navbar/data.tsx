@@ -3,17 +3,17 @@ export const menuLinks = {
         id: "",
         text: "Home",
     },
-    tours: {
-        id: "tours",
-        text: "Tours",
+    whyWe: {
+        id: "whyWe",
+        text: "Why we?",
     },
     hotel: {
         id: "hotel",
         text: "Hotel",
     },
-    service: {
-        id: "Services",
-        text: "Services",
+    reviews: {
+        id: "reviews",
+        text: "Reviews",
     },
     blog: {
         id: "Blog",

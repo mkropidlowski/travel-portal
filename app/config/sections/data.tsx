@@ -1,12 +1,16 @@
 import { SectionType } from "@/app/components/section/types";
 import { menuLinks } from "../navbar/data";
 import StepsSections from "@/app/components/stepsSection/stepsSection";
+import PopularPlaces from "@/app/components/popularPlacesSection/popularPlaces";
+import Reviews from "@/app/components/reviews/reviews";
+import Blog from "@/app/components/blog/blog";
+import Newsletter from "@/app/components/newsletter/newsletter";
 
-const { tours, hotel, service, blog, contact } = menuLinks ?? {};
+const { whyWe, hotel, reviews, blog, contact } = menuLinks ?? {};
 
 export const SectionsContent: SectionType[] = [
     {
-        id: tours.id,
+        id: whyWe.id,
         heading: "Why Choose Our Trip",
         subHeading: "Client stealth iteration monetization distuprite channels. Bla bla bla",
         shouldBeRow: true,
@@ -14,30 +18,30 @@ export const SectionsContent: SectionType[] = [
     },
     {
         id: hotel.id,
-        heading: "Why Choose Our Trip",
+        heading: "Most Popular Tours",
         subHeading: "Client stealth iteration monetization distuprite channels. Bla bla bla",
         shouldBeRow: true,
-        visulContent: <StepsSections />,
+        visulContent: <PopularPlaces />,
     },
     {
-        id: service.id,
+        id: reviews.id,
         heading: "Why Choose Our Trip",
         subHeading: "Client stealth iteration monetization distuprite channels. Bla bla bla",
         shouldBeRow: true,
-        visulContent: <StepsSections />,
+        visulContent: <Reviews />,
     },
     {
         id: blog.id,
         heading: "Why Choose Our Trip",
         subHeading: "Client stealth iteration monetization distuprite channels. Bla bla bla",
         shouldBeRow: true,
-        visulContent: <StepsSections />,
+        visulContent: <Blog />,
     },
     {
         id: contact.id,
         heading: "Why Choose Our Trip",
         subHeading: "Client stealth iteration monetization distuprite channels. Bla bla bla",
         shouldBeRow: true,
-        visulContent: <StepsSections />,
+        visulContent: <Newsletter />,
     },
 ];
