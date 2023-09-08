@@ -3,19 +3,19 @@ export const menuLinks = {
         id: "",
         text: "Home",
     },
-    about: {
+    tours: {
         id: "tours",
         text: "Tours",
     },
-    project: {
+    hotel: {
         id: "hotel",
         text: "Hotel",
     },
-    howWeWork: {
+    service: {
         id: "Services",
         text: "Services",
     },
-    offer: {
+    blog: {
         id: "Blog",
         text: "Blog",
     },
