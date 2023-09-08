@@ -33,7 +33,7 @@ const Navbar: FC<NavbarProps & HTMLProps<HTMLDivElement>> = ({ links = menuLinks
                     );
                 })}
                 <li>
-                    <Link href={"/"}>
+                    <Link href={"/booking"}>
                         <Button type="button" secondary>
                             Book now
                         </Button>
