@@ -18,23 +18,26 @@ const Navbar: FC<NavbarProps & HTMLProps<HTMLDivElement>> = ({ links = menuLinks
     return (
         <nav
             className={clsx(
-                "fixed top-0 flex flex-wrap justify-around items-center  w-full md:h-[90px] shadow-[0_4px_30px_rgba(0, 0, 0, 0.1)] h-navBarHeight z-[100] text-black",
+                "fixed top-0 flex flex-wrap justify-around items-center w-full md:h-[90px] shadow-[0_4px_30px_rgba(0, 0, 0, 0.1)] h-navBarHeight z-[100] text-black",
                 isMobileMenuOpen ? "bg-white" : null
             )}
         >
             <div
                 className={clsx(
-                    "md:w-[320px] w-[260px] text-center p-3 rounded-lg cursor-pointer",
+                    "md:w-[300px] w-[210px] text-center p-3 rounded cursor-pointer",
                     isMobileMenuOpen ? "bg-white" : null
                 )}
             >
-                {isMobileMenuOpen ? (
-                    <h2 className="md:text-[30px] text-[20px] font-semibold tracking-[1px] text-black">
-                        Aventure Abound
-                    </h2>
-                ) : null}
+                <h2
+                    className={clsx(
+                        "md:text-[30px] text-[18px] font-semibold tracking-[1px]",
+                        isMobileMenuOpen ? "text-black" : "hidden"
+                    )}
+                >
+                    Aventure Abound
+                </h2>
             </div>
-            <div className={clsx("me-[-25px] lg:hidden", isMobileMenuOpen ? "p-2" : "p-2")}>
+            <div className={clsx("me-[-25px] lg:hidden relative right-3", isMobileMenuOpen ? "p-2" : "p-2")}>
                 <button
                     type="button"
                     onClick={handleMobileMenuToggle}
@@ -63,8 +66,10 @@ const Navbar: FC<NavbarProps & HTMLProps<HTMLDivElement>> = ({ links = menuLinks
 
             <ul
                 className={clsx(
-                    "flex items-center gap-[35px] text-base font-medium bg-white",
-                    isMobileMenuOpen ? "flex-col bg-white w-full z-10 gap-[5px] text-center" : "hidden lg:flex"
+                    "flex items-center gap-[35px] text-base font-medium ",
+                    isMobileMenuOpen
+                        ? "flex-col bg-white w-full z-10 gap-[10px] text-center p-3 mb-4"
+                        : "hidden lg:flex"
                 )}
             >
                 {Object.values(links).map(({ id, text }) => {
@@ -73,7 +78,7 @@ const Navbar: FC<NavbarProps & HTMLProps<HTMLDivElement>> = ({ links = menuLinks
                     return (
                         <li key={text}>
                             <Link href={linkHref}>
-                                <Button type="button" primary>
+                                <Button type="button" primary className={clsx(isMobileMenuOpen ? "w-[200px]" : "")}>
                                     {text}
                                 </Button>
                             </Link>

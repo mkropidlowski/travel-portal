@@ -5,7 +5,7 @@ import Button from "../../button/button";
 
 const Attraction: FC<AttractionType> = ({ id, title, image, description, price }) => {
     return (
-        <div className="w-[350px] h-[550px]" id={id}>
+        <div className="md:w-[350px] w-[290px] h-[550px]" id={id}>
             <div className="h-[400px] relative overflow-hidden">
                 <Image
                     src={image}
