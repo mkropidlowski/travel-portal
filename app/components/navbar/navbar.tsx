@@ -18,26 +18,26 @@ const Navbar: FC<NavbarProps & HTMLProps<HTMLDivElement>> = ({ links = menuLinks
     return (
         <nav
             className={clsx(
-                "fixed top-0 flex flex-wrap justify-around items-center w-full md:h-[90px] shadow-[0_4px_30px_rgba(0, 0, 0, 0.1)] h-navBarHeight z-[100] text-black",
-                isMobileMenuOpen ? "bg-white" : null
+                "fixed top-0 flex flex-wrap justify-around items-center w-full xl:h-[100px] h-[80px] shadow-[0_4px_30px_rgba(0, 0, 0, 0.1)] z-[100] text-black",
+                isMobileMenuOpen ? "bg-white" : "bg-black"
             )}
         >
             <div
                 className={clsx(
-                    "md:w-[300px] w-[210px] text-center p-3 rounded cursor-pointer",
+                    "md:w-[350px] min-w-[200px] text-center p-3 rounded cursor-pointer",
                     isMobileMenuOpen ? "bg-white" : null
                 )}
             >
                 <h2
                     className={clsx(
                         "md:text-[30px] text-[18px] font-semibold tracking-[1px]",
-                        isMobileMenuOpen ? "text-black" : "hidden"
+                        isMobileMenuOpen ? "text-black" : "text-white"
                     )}
                 >
                     Aventure Abound
                 </h2>
             </div>
-            <div className={clsx("me-[-25px] lg:hidden relative right-3", isMobileMenuOpen ? "p-2" : "p-2")}>
+            <div className={clsx("me-[-25px] xl:hidden relative right-3", isMobileMenuOpen ? "p-2" : "p-2")}>
                 <button
                     type="button"
                     onClick={handleMobileMenuToggle}
@@ -69,7 +69,7 @@ const Navbar: FC<NavbarProps & HTMLProps<HTMLDivElement>> = ({ links = menuLinks
                     "flex items-center gap-[35px] text-base font-medium ",
                     isMobileMenuOpen
                         ? "flex-col bg-white w-full z-10 gap-[10px] text-center p-3 mb-4"
-                        : "hidden lg:flex"
+                        : "hidden xl:flex"
                 )}
             >
                 {Object.values(links).map(({ id, text }) => {
