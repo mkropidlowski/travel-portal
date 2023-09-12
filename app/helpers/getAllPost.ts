@@ -14,9 +14,9 @@ export default async function getAllPosts() {
                 "api-key": API_KEY,
             },
             body: JSON.stringify({
-                collection: "blog",
-                database: "travelDB",
-                dataSource: "travelDb",
+                collection: process.env.NEXT_MONGODB_COLLECTION,
+                database: process.env.NEXT_MONGODB_DATABASE,
+                dataSource: process.env.NEXT_MONGODB_DATA_SOURCE,
                 filter: {},
             }),
         });
