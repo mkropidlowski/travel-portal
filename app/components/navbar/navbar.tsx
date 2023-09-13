@@ -19,7 +19,7 @@ const Navbar: FC<NavbarProps & HTMLProps<HTMLDivElement>> = ({ links = menuLinks
         <nav
             className={clsx(
                 "fixed top-0 flex flex-wrap justify-around items-center w-full xl:h-[100px] h-[80px] shadow-[0_4px_30px_rgba(0, 0, 0, 0.1)] z-[100] text-black",
-                isMobileMenuOpen ? "bg-white" : "bg-black"
+                isMobileMenuOpen ? "bg-white" : "bg-transparent"
             )}
         >
             <div
