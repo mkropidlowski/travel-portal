@@ -21,7 +21,6 @@ const Post: FC<PostProps> = ({ _id, title, text, image, date }) => {
             </div>
             <div className="md:w-[50%] w-full md:h-full h-[150px] p-4 flex flex-col justify-start md:gap-[40px] gap-[10px] hover:bg-slate-100">
                 <h3 className="font-bold">{date}</h3>
-                <h3>ID: {_id}</h3>
                 <h2 className="text-xl">{title}</h2>
                 <p>{text}</p>
             </div>

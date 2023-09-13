@@ -6,4 +6,7 @@ export type PostProps = {
     text?: string;
     image: StaticImageData | any;
     date: string;
+    author?: string;
+    likeCount?: number;
+    comments?: [x: string];
 };
