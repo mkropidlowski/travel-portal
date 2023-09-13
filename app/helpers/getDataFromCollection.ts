@@ -3,9 +3,9 @@ import { publicEnvs } from "../config/envs";
 const ENDPOINT = publicEnvs.MONGODB_ENDPOINT;
 const API_KEY = publicEnvs.MONGODB_API_KEY;
 
-export default async function getSinglePost(uniqueId: string) {
+export default async function getDataFromCollection(collectionName: string) {
     try {
-        const res = await fetch(`${ENDPOINT}/findOne`, {
+        const res = await fetch(`${ENDPOINT}/find`, {
             method: "POST",
             cache: "no-store",
             headers: {
@@ -14,12 +14,10 @@ export default async function getSinglePost(uniqueId: string) {
                 "api-key": API_KEY,
             },
             body: JSON.stringify({
-                collection: process.env.NEXT_MONGODB_COLLECTION,
+                collection: collectionName,
                 database: process.env.NEXT_MONGODB_DATABASE,
                 dataSource: process.env.NEXT_MONGODB_DATA_SOURCE,
-                filter: {
-                    _id: { $oid: uniqueId },
-                },
+                filter: {},
             }),
         });
         return res.json();

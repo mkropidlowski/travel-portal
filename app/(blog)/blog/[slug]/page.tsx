@@ -1,10 +1,10 @@
-import getSinglePost from "@/app/helpers/getSinglePost";
+import getSingleRecord from "@/app/helpers/getSingleRecord";
 import Post from "./components/Post";
 import Blog from "@/app/components/blog/blog";
 
 const BlogPage = async ({ params }: { params: { slug: string } }) => {
     const slug = decodeURIComponent(params.slug);
-    const post = await getSinglePost(slug);
+    const post = await getSingleRecord(slug, "blog");
 
     return (
         <div className="max-w-[1200px] flex flex-col items-center justify-center relative top-[150px]">

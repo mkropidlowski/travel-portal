@@ -10,7 +10,7 @@ module.exports = {
     },
     images: {
         unoptimized: true,
-        domains: ["i.pinimg.com"],
+        domains: ["i.pinimg.com", "dcontent.inviacdn.net"],
     },
     reactStrictMode: true,
     experimental: { appDir: true },
