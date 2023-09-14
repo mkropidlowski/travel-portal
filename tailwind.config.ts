@@ -23,6 +23,25 @@ const config: Config = {
                 xl: "1200px",
                 xxl: "1440px",
             },
+            keyframes: {
+                zoomingScale: {
+                    "0%": {
+                        transform: "scale(1)",
+                    },
+                    "5%": {
+                        transform: "scale(1)",
+                    },
+                    "95%": {
+                        transform: "scale(1.2)",
+                    },
+                    "100%": {
+                        transform: "scale(1.2)",
+                    },
+                },
+            },
+            animation: {
+                zooming: "zoomingScale 15s ease-in-out infinite alternate",
+            },
         },
     },
     plugins: [],
