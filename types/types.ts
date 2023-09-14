@@ -16,7 +16,12 @@ export type BE_Attraction = {
     reviews?: number;
     averageGrade?: string;
     isAllInclusive?: boolean;
-    allAmenities?: {
-        [x: string]: string[];
+    isFreeCancellation?: boolean;
+    allAmenities: {
+        propertyAmenities?: string[];
+        roomAmenities?: string[];
+        wellnessSpa?: string[];
+        accessibility?: string[];
+        forChildren?: string[];
     };
 };

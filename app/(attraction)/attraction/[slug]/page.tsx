@@ -6,7 +6,7 @@ const AttractionPage = async ({ params }: { params: { slug: string } }) => {
     const attraction = await getSingleRecord(slug, "attraction");
 
     return (
-        <div className="max-w-[1200px] flex flex-col items-center justify-center relative top-[150px]">
+        <div className="max-w-[1200px] flex flex-col items-center justify-center relative top-[130px]">
             <AttractionDetails
                 _id={slug}
                 name={attraction.document?.name}
@@ -22,6 +22,7 @@ const AttractionPage = async ({ params }: { params: { slug: string } }) => {
                 reviews={attraction.document?.reviews}
                 averageGrade={attraction.document?.averageGrade}
                 isAllInclusive={attraction.document?.isAllInclusive}
+                isFreeCancellation={attraction.document?.isFreeCancellation}
                 allAmenities={attraction.document?.allAmenities}
             />
         </div>
