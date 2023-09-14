@@ -13,8 +13,8 @@ const Attraction: FC<BE_Attraction> = ({ _id, name, image, pricePerDay, currency
         router.push(`/attraction/${_id}`);
     };
     return (
-        <div className="md:w-[350px] w-[290px] h-[550px]" id={_id}>
-            <div className="h-[400px] relative overflow-hidden">
+        <div className="md:w-[300px] w-[290px] h-[500px]" id={_id}>
+            <div className="h-[300px] relative overflow-hidden">
                 <Image
                     src={image}
                     alt={name}
@@ -24,11 +24,11 @@ const Attraction: FC<BE_Attraction> = ({ _id, name, image, pricePerDay, currency
                     "
                 />
             </div>
-            <div className="flex flex-col gap-[15px] items-start p-4 bg-zinc-100">
+            <div className="flex flex-col h-[170px] items-stretch justify-between p-4 bg-zinc-100">
                 <h2 className="text-lg font-semibold">{name}</h2>
                 <p className="text-zinc-500">
                     <span className="font-medium text-black">
-                        5 days, 6 nights start from - {minimumDays} {currency}
+                        5 days, 6 nights - {minimumDays} {currency}
                     </span>
                 </p>
                 <Button type="button" secondary onClick={handleRouter}>

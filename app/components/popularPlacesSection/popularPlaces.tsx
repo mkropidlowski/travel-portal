@@ -8,7 +8,7 @@ const PopularPlaces = async () => {
     const attraction = await getDataFromCollection("attraction", 3);
     return (
         <div className="w-full flex flex-col gap-8 justify-center items-center">
-            <div className="flex md:flex-row flex-col justify-center items-center m-auto mt-[35px] gap-[45px]">
+            <div className="flex md:flex-row flex-col justify-center items-center m-auto mt-[35px] gap-[35px]">
                 {attraction.documents.map((attraction: BE_Attraction) => (
                     <Attraction
                         key={attraction?._id}
