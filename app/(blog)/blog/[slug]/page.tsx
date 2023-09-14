@@ -23,7 +23,6 @@ const BlogPage = async ({ params }: { params: { slug: string } }) => {
                     See also similar posts
                 </h1>
             </div>
-
             <Blog />
         </div>
     );
