@@ -3,7 +3,7 @@ import Attraction from "./components/atraction";
 import { BE_Attraction } from "@/types/types";
 
 const PopularPlaces = async () => {
-    const attraction = await getDataFromCollection("attraction");
+    const attraction = await getDataFromCollection("attraction", 3);
     return (
         <div className="flex md:flex-row flex-col justify-center items-center m-auto mt-[35px] gap-[45px]">
             {attraction.documents.map((attraction: BE_Attraction) => (
@@ -15,6 +15,13 @@ const PopularPlaces = async () => {
                     pricePerDay={attraction?.pricePerDay}
                     image={attraction?.image}
                     currency={attraction?.currency}
+                    allAmenities={{
+                        propertyAmenities: undefined,
+                        roomAmenities: undefined,
+                        wellnessSpa: undefined,
+                        accessibility: undefined,
+                        forChildren: undefined,
+                    }}
                 />
             ))}
         </div>

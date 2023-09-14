@@ -3,7 +3,7 @@ import { publicEnvs } from "../config/envs";
 const ENDPOINT = publicEnvs.MONGODB_ENDPOINT;
 const API_KEY = publicEnvs.MONGODB_API_KEY;
 
-export default async function getDataFromCollection(collectionName: string) {
+export default async function getDataFromCollection(collectionName: string, fetchLimit?: number) {
     try {
         const res = await fetch(`${ENDPOINT}/find`, {
             method: "POST",
@@ -18,6 +18,7 @@ export default async function getDataFromCollection(collectionName: string) {
                 database: process.env.NEXT_MONGODB_DATABASE,
                 dataSource: process.env.NEXT_MONGODB_DATA_SOURCE,
                 filter: {},
+                limit: fetchLimit,
             }),
         });
         return res.json();
