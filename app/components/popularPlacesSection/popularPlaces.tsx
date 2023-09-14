@@ -5,7 +5,7 @@ import { BE_Attraction } from "@/types/types";
 const PopularPlaces = async () => {
     const attraction = await getDataFromCollection("attraction");
     return (
-        <div className="max-w-[1200px] flex md:flex-row flex-col justify-center items-center m-auto mt-[35px] gap-[45px]">
+        <div className="flex md:flex-row flex-col justify-center items-center m-auto mt-[35px] gap-[45px]">
             {attraction.documents.map((attraction: BE_Attraction) => (
                 <Attraction
                     key={attraction?._id}

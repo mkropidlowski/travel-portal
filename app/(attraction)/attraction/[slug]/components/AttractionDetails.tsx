@@ -36,7 +36,7 @@ const AttractionDetails: FC<BE_Attraction> = ({
             className="flex flex-col justify-center items-center min-w-[1140px] h-auto shadow-lg p-4 gap-5 mb-[100px]"
             id={_id}
         >
-            <div className="w-[900px] flex justify-around">
+            <div className="w-[900px] flex md:justify-around items-center lg:flex-row flex-col">
                 <div className="relative w-[400px] h-[400px]">
                     <Image src={image} alt={name} fill style={{ objectFit: "cover" }} className="rounded-lg" />
                 </div>
@@ -53,7 +53,7 @@ const AttractionDetails: FC<BE_Attraction> = ({
                             </span>
                         </h2>
                     </div>
-                    <div className="min-w-[350px] h-[150px] bg-lime-100 rounded-lg font-medium text-left p-4">
+                    <div className="min-w-[320px] h-[150px] bg-lime-100 rounded-lg font-medium text-left p-4">
                         <div className="flex gap-3 mt-3">
                             {isAllInclusive ? (
                                 <p className="text-green-900 flex items-center gap-2">
@@ -79,7 +79,7 @@ const AttractionDetails: FC<BE_Attraction> = ({
                     </div>
                 </div>
             </div>
-            <div className="max-w-[900px] flex flex-wrap gap-[10px]">
+            <div className="md:min-w-[900px] w-[320px] flex flex-wrap gap-[10px]">
                 {photos?.map((photo, i) => (
                     <div key={i} className="relative w-[100px] h-[100px] cursor-pointer">
                         <Image src={photo} alt={""} fill style={{ objectFit: "cover" }} className="rounded-lg" />
@@ -87,16 +87,16 @@ const AttractionDetails: FC<BE_Attraction> = ({
                 ))}
             </div>
             <span className="border-t-[2px] border-gray p-3 w-full"></span>
-            <div className="w-[900px]">
+            <div className="md:w-[900px] w-[300px]">
                 <h2 className="text-[20px]">
                     About <span className="font-medium">{name}</span>
                 </h2>
                 <p className="p-3 text-sm">{description}</p>
             </div>
             <span className="border-t-[2px] border-gray p-3 w-full"></span>
-            <div className="w-[900px]">
+            <div className="md:w-[900px] w-[300px] flex flex-col">
                 <h2 className="text-[20px]">Our Amenities</h2>
-                <div className="grid grid-cols-3 gap-2 p-3">
+                <div className="grid md:grid-cols-3 grid-cols-1 gap-2 p-3">
                     {hotelAmenities?.map((amenities, i) => (
                         <p
                             key={i}
@@ -108,9 +108,9 @@ const AttractionDetails: FC<BE_Attraction> = ({
                 </div>
             </div>
             {allAmenities ? (
-                <div className="w-[90%]">
+                <div className="md:min-w-[90%] w-[300px]">
                     <h2 className="text-[20px] font-medium">More accessibility:</h2>
-                    <div className="grid grid-cols-5 gap-3">
+                    <div className="grid md:grid-cols-5 gap-3">
                         {amenitiesCategory.map((categoryName) => (
                             <div key={categoryName} className="p-4">
                                 <h3 className="font-semibold text-sm mb-2">{categoryName}</h3>
