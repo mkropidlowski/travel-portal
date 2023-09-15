@@ -33,9 +33,9 @@ const BookingDetails: FC<BE_Attraction> = ({ _id, name, pricePerDay, image, loca
 
     const totalPrice = numberOfDays * dailyRate;
     const totalRange = `${formatDate(dateState[0])} - ${formatDate(dateState[1])}`;
-    console.log("Zakres:", `${formatDate(dateState[0])} - ${formatDate(dateState[1])}`);
-    console.log("Liczba dni pobytu: ", numberOfDays);
-    console.log("Cena pobytu: ", totalPrice);
+    // console.log("Zakres:", `${formatDate(dateState[0])} - ${formatDate(dateState[1])}`);
+    // console.log("Liczba dni pobytu: ", numberOfDays);
+    // console.log("Cena pobytu: ", totalPrice);
 
     return (
         <div
