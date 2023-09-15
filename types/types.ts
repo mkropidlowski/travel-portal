@@ -17,6 +17,9 @@ export type BE_Attraction = {
     averageGrade?: string;
     isAllInclusive?: boolean;
     isFreeCancellation?: boolean;
+    dateRange?: string;
+    totalPrice?: number;
+    numberOfDays?: number;
     allAmenities: {
         propertyAmenities?: string[];
         roomAmenities?: string[];

@@ -1,14 +1,15 @@
+"use client";
 import Button from "@/app/components/button/button";
 import { Checked } from "@/app/components/icons";
 import { BE_Attraction } from "@/types/types";
 import Image from "next/image";
 import { FC } from "react";
 import { amenitiesCategory } from "./helpers/data";
+import { useRouter } from "next/navigation";
 
 const AttractionDetails: FC<BE_Attraction> = ({
     _id,
     name,
-    date,
     description,
     allAmenities,
     image,
@@ -23,6 +24,7 @@ const AttractionDetails: FC<BE_Attraction> = ({
     currency,
     isFreeCancellation,
 }) => {
+    const router = useRouter();
     const minimumDays = (pricePerDay as number) * 5;
     const amenitiesMap: any = {
         "Property amenities": allAmenities?.propertyAmenities || [],
@@ -30,6 +32,10 @@ const AttractionDetails: FC<BE_Attraction> = ({
         "Wellness / Spa": allAmenities?.wellnessSpa || [],
         Accessibility: allAmenities?.accessibility || [],
         "For children": allAmenities?.forChildren || [],
+    };
+
+    const handleBookAttraction = () => {
+        router.replace(`/book-attraction/${_id}`);
     };
     return (
         <div
@@ -72,7 +78,12 @@ const AttractionDetails: FC<BE_Attraction> = ({
                             </h2>
                         </div>
                         <div className="mt-3">
-                            <Button type="button" secondary className="bg-green-900 font-medium">
+                            <Button
+                                type="button"
+                                secondary
+                                className="bg-green-900 font-medium"
+                                onClick={handleBookAttraction}
+                            >
                                 View deal
                             </Button>
                         </div>
