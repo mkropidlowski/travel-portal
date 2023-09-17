@@ -1,9 +1,9 @@
-import getSingleRecord from "@/app/helpers/getSingleRecord";
+import Form from "@/app/components/form/form";
+import { BE_Reservation } from "@/types/types";
+import { FC } from "react";
 
-const SummaryPage = () => {
-    return (
-        <div className="md:min-w-[1200px] w-[320px] flex flex-col items-center justify-center relative top-[150px]"></div>
-    );
+const SummaryPage: FC<BE_Reservation> = ({ id, dateRange, numberOfDays, totalPrice }) => {
+    return <Form dateRange={dateRange} totalPrice={totalPrice} numberOfDays={numberOfDays} id={id} />;
 };
 
 export default SummaryPage;

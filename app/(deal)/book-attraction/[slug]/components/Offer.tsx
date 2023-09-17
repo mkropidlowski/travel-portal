@@ -2,13 +2,12 @@ import { BE_Attraction } from "@/types/types";
 import { FC, useEffect, useState } from "react";
 import Image from "next/image";
 import Button from "@/app/components/button/button";
-import Form from "@/app/(summary)/summary/[slug]/components/form";
+import SummaryPage from "@/app/(summary)/summary/[slug]/page";
 
 const Offer: FC<BE_Attraction> = ({
     _id,
     name,
     image,
-    pricePerDay,
     location,
     locationGeo,
     currency,
@@ -25,8 +24,6 @@ const Offer: FC<BE_Attraction> = ({
         setPriceIfAdultSet(value);
         setAdultsPriceCount(newPrice);
     };
-
-    console.log(priceIfAdultSet);
 
     return (
         <div className="flex flex-col items-center p-4">
@@ -54,7 +51,9 @@ const Offer: FC<BE_Attraction> = ({
                                     <h3>
                                         <span className="font-medium">Total price: </span>
                                         {adultsPriceCount === 1 ? (
-                                            totalPrice
+                                            <span>
+                                                {totalPrice} {currency}
+                                            </span>
                                         ) : (
                                             <span>
                                                 {adultsPriceCount} {currency}
@@ -90,8 +89,13 @@ const Offer: FC<BE_Attraction> = ({
             </div>
 
             {showForm ? (
-                <div className="h-[600px]">
-                    <Form />
+                <div className="h-fit">
+                    <SummaryPage
+                        dateRange={dateRange}
+                        totalPrice={adultsPriceCount}
+                        numberOfDays={numberOfDays}
+                        id={_id}
+                    />
                 </div>
             ) : null}
         </div>

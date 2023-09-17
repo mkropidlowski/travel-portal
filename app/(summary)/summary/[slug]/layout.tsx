@@ -4,7 +4,7 @@ export default async function SummaryLayout({ children }: { children: React.Reac
     return (
         <>
             <Navbar />
-            <div className="max-w-[1140px] max-h-max flex items-center flex-col m-auto">{children}</div>
+            <div className="max-w-[1140px] h-screen flex items-center flex-col m-auto">{children}</div>
         </>
     );
 }

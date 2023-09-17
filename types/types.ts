@@ -20,11 +20,31 @@ export type BE_Attraction = {
     dateRange?: string;
     totalPrice?: number;
     numberOfDays?: number;
-    allAmenities: {
+    allAmenities?: {
         propertyAmenities?: string[];
         roomAmenities?: string[];
         wellnessSpa?: string[];
         accessibility?: string[];
         forChildren?: string[];
     };
+};
+
+export type BE_BookingForm = {
+    name?: string;
+    surname?: string;
+    email?: string;
+    phone?: string;
+    street?: string;
+    houseNumber?: number;
+    locality?: string;
+    postalCode?: string;
+    birthDate?: string;
+    gender?: string;
+};
+
+export type BE_Reservation = {
+    id?: string;
+    dateRange?: string;
+    totalPrice?: number;
+    numberOfDays?: number;
 };
