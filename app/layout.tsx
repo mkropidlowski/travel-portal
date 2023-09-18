@@ -1,6 +1,7 @@
 import "./globals.scss";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import ToasterContext from "./context/ToasterContext";
 
 const font = Montserrat({ weight: ["100", "300", "400", "500", "700", "900"], subsets: ["latin"] });
 
@@ -13,6 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="pl">
             <body className={font.className} suppressHydrationWarning>
+                <ToasterContext />
                 {children}
             </body>
         </html>

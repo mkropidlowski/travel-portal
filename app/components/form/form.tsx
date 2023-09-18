@@ -6,6 +6,7 @@ import { bookingFormInputs, firstTourParticipantsInputs, secondTourParticipantsI
 import Input from "../input/input";
 import Button from "../button/button";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 export const dynamic = "force-dynamic";
 type Variant = "ADD";
@@ -36,8 +37,11 @@ const Form: FC<BE_Reservation> = ({ tripId, dataRange, numberOfDays, totalPrice 
             .post("/api/reservation", {
                 ...values,
             })
-            .then(() => formRef.current?.reset())
-            .catch(() => console.log("error"))
+            .then(() => {
+                formRef.current?.reset();
+                toast.success("Great! Reservation completed.");
+            })
+            .catch(() => toast.error("Invalid error, try again later."))
 
             .finally(() => {
                 setIsLoading(false);
