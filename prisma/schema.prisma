@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+
+model Reservation {
+  id String  @id @default(auto()) @map("_id") @db.ObjectId
+  tripId String?
+  dataRange String?
+  numberOfDays Int?
+  name String?
+  surname String?
+  email String?
+  phone String?
+  street String?
+  houseNumber String?
+  totalPrice Int?
+  locality String?
+  postalCode String?
+  firstParticipantName String?
+  firstParticipantSurname String?
+  firstParticipantGender String?
+  firstParticipantPhone String?
+  firstParticipantBirthDate String?
+  secondParticipantBirthDate String?
+  secondParticipantGender String?
+  secondParticipantName String?
+  secondParticipantPhone String?
+  secondParticipantSurname String?
+}

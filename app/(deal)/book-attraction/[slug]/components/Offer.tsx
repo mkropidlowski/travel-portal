@@ -91,10 +91,10 @@ const Offer: FC<BE_Attraction> = ({
             {showForm ? (
                 <div className="h-fit">
                     <SummaryPage
-                        dateRange={dateRange}
+                        dataRange={dateRange}
                         totalPrice={adultsPriceCount}
                         numberOfDays={numberOfDays}
-                        id={_id}
+                        tripId={_id}
                     />
                 </div>
             ) : null}

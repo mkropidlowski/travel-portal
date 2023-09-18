@@ -43,8 +43,8 @@ export type BE_BookingForm = {
 };
 
 export type BE_Reservation = {
-    id?: string;
-    dateRange?: string;
+    tripId?: string;
+    dataRange?: string;
     totalPrice?: number;
     numberOfDays?: number;
 };
