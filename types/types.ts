@@ -48,3 +48,30 @@ export type BE_Reservation = {
     totalPrice?: number;
     numberOfDays?: number;
 };
+
+export type FormReservation = {
+    name?: string;
+    surname?: string;
+    email?: string;
+    phone?: string;
+    street?: string;
+    houseNumber?: string;
+    locality?: string;
+    postalCode?: string;
+    birthDate?: string;
+    gender?: string;
+    tripId?: string;
+    dataRange?: string;
+    totalPrice?: number;
+    numberOfDays?: number;
+    firstParticipantName?: string;
+    firstParticipantSurname?: string;
+    firstParticipantGender?: string;
+    firstParticipantPhone?: string;
+    firstParticipantBirthDate?: string;
+    secondParticipantBirthDate?: string;
+    secondParticipantGender?: string;
+    secondParticipantName?: string;
+    secondParticipantPhone?: string;
+    secondParticipantSurname?: string;
+};

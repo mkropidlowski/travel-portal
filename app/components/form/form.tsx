@@ -1,5 +1,5 @@
 "use client";
-import { BE_BookingForm, BE_Reservation } from "@/types/types";
+import { BE_BookingForm, FormReservation } from "@/types/types";
 import { FC, useRef, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { bookingFormInputs, firstTourParticipantsInputs, secondTourParticipantsInputs } from "./data/data";
@@ -10,8 +10,9 @@ import toast from "react-hot-toast";
 
 export const dynamic = "force-dynamic";
 type Variant = "ADD";
+type FormReservationToResolver = Partial<FormReservation>;
 
-const Form: FC<BE_Reservation> = ({ tripId, dataRange, numberOfDays, totalPrice }) => {
+const Form: FC<FormReservation> = ({ tripId, dataRange, numberOfDays, totalPrice }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [variant, setVariant] = useState<Variant>("ADD");
     const formRef = useRef<HTMLFormElement | null>(null);
@@ -20,8 +21,20 @@ const Form: FC<BE_Reservation> = ({ tripId, dataRange, numberOfDays, totalPrice 
         handleSubmit,
         setValue,
         formState: { errors },
-    } = useForm<BE_BookingForm>({
-        defaultValues: { name: "", surname: "" },
+    } = useForm<FormReservationToResolver>({
+        defaultValues: {
+            name: "",
+            surname: "",
+            email: "",
+            phone: "",
+            street: "",
+            houseNumber: "",
+            locality: "",
+            postalCode: "",
+            birthDate: "",
+            gender: "",
+        },
+        mode: "all",
     });
 
     const submitForm: SubmitHandler<FieldValues> = (data) => {
@@ -61,7 +74,7 @@ const Form: FC<BE_Reservation> = ({ tripId, dataRange, numberOfDays, totalPrice 
                     <h2 className="text-[20px] font-medium">1. DETAILS OF THE RESERVING PERSON/PAYER</h2>
                     <div className="w-full flex flex-wrap gap-3 p-3">
                         {bookingFormInputs.map(({ formKey, label }) => {
-                            const formInputKey = formKey as keyof BE_BookingForm;
+                            const formInputKey = formKey as keyof FormReservation;
                             return (
                                 <Input
                                     type="text"
@@ -69,8 +82,8 @@ const Form: FC<BE_Reservation> = ({ tripId, dataRange, numberOfDays, totalPrice 
                                     key={formInputKey}
                                     id={formKey}
                                     label={label}
+                                    required
                                     register={register}
-                                    errors={errors}
                                 />
                             );
                         })}
@@ -92,7 +105,6 @@ const Form: FC<BE_Reservation> = ({ tripId, dataRange, numberOfDays, totalPrice 
                                         id={formKey}
                                         label={label}
                                         register={register}
-                                        errors={errors}
                                     />
                                 );
                             })}
@@ -111,7 +123,6 @@ const Form: FC<BE_Reservation> = ({ tripId, dataRange, numberOfDays, totalPrice 
                                         id={formKey}
                                         label={label}
                                         register={register}
-                                        errors={errors}
                                     />
                                 );
                             })}
