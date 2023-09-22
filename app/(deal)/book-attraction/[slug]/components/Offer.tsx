@@ -17,8 +17,8 @@ const Offer: FC<BE_Attraction> = ({ _id, name, image, location, currency, totalP
 
     return (
         <div className="flex flex-col items-center p-4">
-            <div className="flex gap-6 shadow-xl rounded-md p-4 h-[330px]">
-                <div className="relative w-[200px] h-[200px]">
+            <div className="flex md:flex-row flex-col gap-6 shadow-xl rounded-md p-4 md:h-[330px] h-[600px]">
+                <div className="relative md:w-[200px] md:h-[200px] w-[300px] h-[300px]">
                     <Image src={image} alt={name} fill style={{ objectFit: "cover" }} className="rounded-lg" />
                 </div>
                 <div className="p-3">

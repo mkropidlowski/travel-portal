@@ -36,7 +36,7 @@ const BookingDetails: FC<BE_Attraction> = ({ _id, name, pricePerDay, image, loca
 
     return (
         <div
-            className="flex md:flex-row flex-col justify-around items-start min-w-[1140px] h-auto shadow-lg p-4 gap-5 mb-[100px]"
+            className="flex md:flex-row flex-col-reverse justify-around w-full md:items-start items-center max-w-[1140px] h-auto p-4 gap-5 mb-[100px]"
             id={_id}
         >
             <div>

@@ -68,7 +68,7 @@ const AttractionDetails: FC<BE_Attraction> = ({
                                 </span>
                             </h2>
                         </div>
-                        <div className="md:max-w-[310px] w-[400px] md:h-[180px] h-[200px] bg-lime-100 rounded-lg font-medium text-left p-4">
+                        <div className="md:w-[410px] w-[280px] md:h-[180px] h-[200px] bg-lime-100 rounded-lg font-medium text-left p-4">
                             <div className="flex gap-3 mt-3">
                                 {isAllInclusive ? (
                                     <p className="text-green-900 flex items-center gap-2">
