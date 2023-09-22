@@ -16,7 +16,6 @@ const AttractionDetails: FC<BE_Attraction> = ({
     isAllInclusive,
     pricePerDay,
     location,
-    locationGeo,
     hotelAmenities,
     photos,
     reviews,

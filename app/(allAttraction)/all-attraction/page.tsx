@@ -15,13 +15,6 @@ const AttractionPage = async () => {
                     pricePerDay={attraction?.pricePerDay}
                     image={attraction?.image}
                     currency={attraction?.currency}
-                    allAmenities={{
-                        propertyAmenities: undefined,
-                        roomAmenities: undefined,
-                        wellnessSpa: undefined,
-                        accessibility: undefined,
-                        forChildren: undefined,
-                    }}
                 />
             ))}
         </div>

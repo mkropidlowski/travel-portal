@@ -1,20 +1,10 @@
 import { BE_Attraction } from "@/types/types";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import Image from "next/image";
 import Button from "@/app/components/button/button";
 import SummaryPage from "@/app/(summary)/summary/[slug]/page";
 
-const Offer: FC<BE_Attraction> = ({
-    _id,
-    name,
-    image,
-    location,
-    locationGeo,
-    currency,
-    totalPrice,
-    numberOfDays,
-    dateRange,
-}) => {
+const Offer: FC<BE_Attraction> = ({ _id, name, image, location, currency, totalPrice, numberOfDays, dateRange }) => {
     const [showForm, setShowForm] = useState<boolean>(false);
     const [adultsPriceCount, setAdultsPriceCount] = useState<number>(1);
     const [priceIfAdultSet, setPriceIfAdultSet] = useState(totalPrice as number);
@@ -71,7 +61,6 @@ const Offer: FC<BE_Attraction> = ({
                                                 min={1}
                                                 className="p-1 w-[90px] h-[27px] rounded-sm border border-x-emerald-700"
                                                 placeholder="Choose"
-                                                // value={adultsPriceCount}
                                                 onChange={(e) => priceIfAdultsChange(parseInt(e.target.value))}
                                             ></input>
                                         </form>
