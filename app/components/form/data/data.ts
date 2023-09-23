@@ -1,34 +1,34 @@
 export const bookingFormInputs = [
     {
-        formKey: "name",
+        formKey: "name" as const,
         label: "Name",
     },
     {
-        formKey: "surname",
+        formKey: "surname" as const,
         label: "Surname",
     },
     {
-        formKey: "email",
+        formKey: "email" as const,
         label: "E-mail",
     },
     {
-        formKey: "phone",
+        formKey: "phone" as const,
         label: "Phone",
     },
     {
-        formKey: "street",
+        formKey: "street" as const,
         label: "Street",
     },
     {
-        formKey: "houseNumber",
+        formKey: "houseNumber" as const,
         label: "House number",
     },
     {
-        formKey: "locality",
+        formKey: "locality" as const,
         label: "Locality",
     },
     {
-        formKey: "postalCode",
+        formKey: "postalCode" as const,
         label: "Postal code",
     },
 ];
@@ -79,3 +79,9 @@ export const secondTourParticipantsInputs = [
 ];
 
 export type ResponseStatus = "pending" | "sent" | "error";
+
+export const contactFormResponseStatuses = {
+    pending: "Wysyłanie wiadomości...",
+    sent: "Wysłano wiadomość",
+    default: "Wysyłam wiadomość",
+};

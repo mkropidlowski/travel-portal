@@ -49,7 +49,7 @@ export type BE_Reservation = {
     numberOfDays?: number;
 };
 
-export type FormReservation = {
+export interface FormReservation {
     name?: string;
     surname?: string;
     email?: string;
@@ -74,4 +74,4 @@ export type FormReservation = {
     secondParticipantName?: string;
     secondParticipantPhone?: string;
     secondParticipantSurname?: string;
-};
+}
