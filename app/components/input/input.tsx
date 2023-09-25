@@ -1,13 +1,10 @@
 import clsx from "clsx";
-import { isError } from "lodash";
-import error from "next/error";
-import { type } from "os";
 import { ChangeEvent, HTMLProps, forwardRef } from "react";
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 
 export interface InputProps {
-    label: string;
-    id: string;
+    label?: string;
+    id?: string;
     type?: string;
     required?: boolean;
     // register?: UseFormRegister<FieldValues>;

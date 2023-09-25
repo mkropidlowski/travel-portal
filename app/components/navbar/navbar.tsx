@@ -28,14 +28,16 @@ const Navbar: FC<NavbarProps & HTMLProps<HTMLDivElement>> = ({ links = menuLinks
                     isMobileMenuOpen ? "bg-white" : null
                 )}
             >
-                <h2
-                    className={clsx(
-                        "md:text-[30px] text-[18px] font-semibold tracking-[1px]",
-                        isMobileMenuOpen ? "text-black" : "text-white"
-                    )}
-                >
-                    Aventure Abound
-                </h2>
+                <Link href={"/"}>
+                    <h2
+                        className={clsx(
+                            "md:text-[30px] text-[18px] font-semibold tracking-[1px]",
+                            isMobileMenuOpen ? "text-black" : "text-white"
+                        )}
+                    >
+                        Aventure Abound
+                    </h2>
+                </Link>
             </div>
             <div className={clsx("me-[-25px] xl:hidden relative right-3", isMobileMenuOpen ? "p-2" : "p-2")}>
                 <button
