@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useCallback } from "react";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 type Variant = "LOGIN" | "REGISTER";
 
@@ -37,7 +39,43 @@ const AuthForm = () => {
     } = useForm<FieldValues>({ defaultValues: { name: "", email: "", password: "" } });
 
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
-        console.log("elo");
+        setIsLoading(true);
+
+        if (variant === "REGISTER") {
+            axios
+                .post("/api/register", data)
+                .then(() =>
+                    signIn("credentials", {
+                        ...data,
+                        redirect: false,
+                    })
+                )
+                .then((callback) => {
+                    if (callback?.error) {
+                        toast.error("Invalid data.");
+                    }
+                    if (callback?.ok) {
+                        router.push("/");
+                        toast.success("Account created, now try login.");
+                    }
+                })
+                .catch(() => toast.error("Something went wrong ;c"))
+                .finally(() => setIsLoading(false));
+        }
+
+        if (variant === "LOGIN") {
+            signIn("credentials", { ...data, redirect: false })
+                .then((callback) => {
+                    if (callback?.error) {
+                        toast.error("Invalid data, please try again.");
+                    }
+                    if (callback?.ok && !callback?.error) {
+                        toast.success("Hello, login complete.");
+                        router.push("/dashboard");
+                    }
+                })
+                .finally(() => setIsLoading(false));
+        }
     };
 
     return (
