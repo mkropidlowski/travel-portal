@@ -11,6 +11,7 @@ export interface InputProps {
     error?: boolean;
     errorText?: any;
     disabled?: boolean;
+    fullWidth?: boolean;
     isError?: string | boolean;
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
@@ -22,6 +23,7 @@ const Input = forwardRef<HTMLInputElement, InputProps & HTMLProps<HTMLInputEleme
             id,
             type,
             required,
+            fullWidth,
             error,
             errorText,
             isError = error || !!errorText,
@@ -49,7 +51,8 @@ const Input = forwardRef<HTMLInputElement, InputProps & HTMLProps<HTMLInputEleme
                         className={clsx(
                             disabled && "opacity-50 cursor-default",
                             "border-b border-b-slate-400 bg-transparent outline-0",
-                            isError && "border-red-600"
+                            isError && "border-red-600",
+                            fullWidth && "w-full"
                         )}
                         ref={ref}
                         {...rest}
