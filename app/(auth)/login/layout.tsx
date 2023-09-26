@@ -1,5 +1,3 @@
-import Navbar from "@/app/components/navbar/navbar";
-
 export default async function AuthLayout({ children }: { children: React.ReactNode }) {
     return (
         <>
