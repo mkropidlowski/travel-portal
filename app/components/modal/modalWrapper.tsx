@@ -1,15 +1,16 @@
 "use client";
 import { FC, useEffect, useState } from "react";
-import Button from "@/app/components/button/button";
 import ReactDOM from "react-dom";
+import { CloseIcon } from "../icons";
 
 type ModalProps = {
     show: boolean;
     onClose: Function;
     title?: string;
     children: React.ReactNode;
+    maxWidth: number;
 };
-const Modal: FC<ModalProps> = ({ show, onClose, children, title }) => {
+const ModalWrapper: FC<ModalProps> = ({ show, onClose, children, title, maxWidth, ...rest }) => {
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
@@ -30,12 +31,12 @@ const Modal: FC<ModalProps> = ({ show, onClose, children, title }) => {
             className="fixed bg-black flex items-center justify-center w-screen h-screen top-0 left-0 z-[1000]"
             onClick={handleOverlayClick}
         >
-            <div className="bg-white p-4 max-w-[800px] rounded-lg">
+            <div className="bg-white p-4 rounded-lg" style={{ maxWidth: `${maxWidth}px` }} {...rest}>
                 <div className="flex justify-between items-center">
-                    <h2>{title}</h2>
-                    <Button type="button" secondary onClick={handleCloseClick}></Button>
+                    <h2 className="font-medium text-base">{title}</h2>
+                    <CloseIcon onClick={handleCloseClick} width={25} height={25} className="cursor-pointer" />
                 </div>
-                <div>{children}</div>
+                <div className="p-4">{children}</div>
             </div>
         </div>
     );
@@ -46,9 +47,17 @@ const Modal: FC<ModalProps> = ({ show, onClose, children, title }) => {
     return ReactDOM.createPortal(ModalComponent(), document.getElementById("modal-root") as HTMLElement);
 };
 
-export default Modal;
+export default ModalWrapper;
 
 // how to use modal :
 // add "use client"
 // paste  const [showModal, setShowModal] = useState(false);
 // insert  <button onClick={() => setShowModal(true)}>Button name</button>
+
+// EXAMPLE
+{
+    /* <button onClick={() => setShowModal(true)}>open modal_2</button>
+<ModalWrapper onClose={() => setShowModal(false)} show={showModal} title="TEST_1" maxWidth={500}>
+    <h2 className="w-[500px]">elo</h2>
+</ModalWrapper> */
+}

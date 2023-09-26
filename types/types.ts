@@ -75,3 +75,16 @@ export interface FormReservation {
     secondParticipantPhone?: string;
     secondParticipantSurname?: string;
 }
+
+export type BE_User = {
+    name: string;
+    email: string;
+    image: string;
+    role_id: number;
+};
+
+export enum UserRole {
+    "ADMIN" = 1,
+    "USER" = 2,
+    "MODERATOR" = 3,
+}
