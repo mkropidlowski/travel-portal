@@ -19,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <ToasterContext />
                     {children}
                 </AuthContext>
+                <div id="modal-root"></div>
             </body>
         </html>
     );
