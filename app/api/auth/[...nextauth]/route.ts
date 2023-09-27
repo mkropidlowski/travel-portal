@@ -2,12 +2,54 @@ import bcrypt from "bcrypt";
 import NextAuth, { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@auth/prisma-adapter";
-import type { Adapter } from "next-auth/adapters";
 
 import prisma from "@/app/libs/prismadb";
 
 export const authOptions: AuthOptions = {
-    adapter: PrismaAdapter(prisma) as Adapter,
+    adapter: PrismaAdapter(prisma),
+    pages: {
+        signIn: "/login",
+        signOut: "/",
+        error: "/login",
+        newUser: "/",
+    },
+    session: {
+        strategy: "jwt",
+    },
+    secret: process.env.NEXTAUTH_SECRET,
+    callbacks: {
+        async session({ token, session }) {
+            if (token) {
+                session.user.id = token.id;
+                session.user.name = token.name;
+                session.user.email = token.email;
+                session.user.role = token.role;
+            }
+
+            return session;
+        },
+
+        async jwt({ token, user }) {
+            const dbUser = await prisma.user.findFirst({
+                where: {
+                    email: token.email,
+                },
+            });
+
+            if (!dbUser) {
+                token.id = user!.id;
+                return token;
+            }
+
+            return {
+                id: dbUser.id,
+                role: dbUser.role,
+                name: dbUser.name,
+                email: dbUser.email,
+            };
+        },
+    },
+
     providers: [
         CredentialsProvider({
             name: "credentials",
@@ -39,15 +81,7 @@ export const authOptions: AuthOptions = {
             },
         }),
     ],
-    debug: process.env.NODE_ENV === "development",
-    pages: {
-        signIn: "/login",
-        signOut: "/",
-    },
-    session: {
-        strategy: "jwt",
-    },
-    secret: process.env.NEXTAUTH_SECRET,
+    debug: true,
 };
 
 const handler = NextAuth(authOptions);

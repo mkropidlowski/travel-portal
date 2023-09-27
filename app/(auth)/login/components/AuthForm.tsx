@@ -21,7 +21,7 @@ const AuthForm = () => {
         if (session.status === "authenticated") {
             router.push("/dashboard");
         }
-    }, [router, session.status]);
+    }, [router, session.status, variant]);
 
     const toggleVariant = useCallback(() => {
         if (variant === "LOGIN") {
