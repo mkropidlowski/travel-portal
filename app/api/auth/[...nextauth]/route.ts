@@ -1,9 +1,13 @@
 import bcrypt from "bcrypt";
-import NextAuth, { AuthOptions } from "next-auth";
+import NextAuth, { AuthOptions, Session, User } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@auth/prisma-adapter";
-
 import prisma from "@/app/libs/prismadb";
+import { JWT } from "next-auth/jwt";
+// import { ProviderList, Providers } from "@/app/modules/auth/types";
+// import { SignJWT } from "jose";
+// import { nanoid } from "nanoid";
+// import { getJwtSecretKey } from "@/app/libs/auth";
 
 export const authOptions: AuthOptions = {
     adapter: PrismaAdapter(prisma),
@@ -18,18 +22,34 @@ export const authOptions: AuthOptions = {
     },
     secret: process.env.NEXTAUTH_SECRET,
     callbacks: {
-        async session({ token, session }) {
+        async signIn({ user, account }) {
+            // const token = await new SignJWT({})
+            //     .setProtectedHeader({ alg: "HS256" })
+            //     .setJti(nanoid())
+            //     .setIssuedAt()
+            //     .setExpirationTime("1m")
+            //     .sign(new TextEncoder().encode(getJwtSecretKey()));
+
+            // user.access_token =
+
+            return true;
+        },
+        async session(params: { token: JWT; session: Session }) {
+            const { session, token } = params;
             if (token) {
                 session.user.id = token.id;
                 session.user.name = token.name;
                 session.user.email = token.email;
                 session.user.role = token.role;
+                // session.user.access_token = token.access_token;
+                // session.user.refresh_token = token.refresh_token;
             }
 
             return session;
         },
 
-        async jwt({ token, user }) {
+        async jwt(params: { token: JWT; user: User }) {
+            const { token, user } = params;
             const dbUser = await prisma.user.findFirst({
                 where: {
                     email: token.email,
