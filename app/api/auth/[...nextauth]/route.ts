@@ -21,29 +21,16 @@ export const authOptions: AuthOptions = {
         strategy: "jwt",
     },
     secret: process.env.NEXTAUTH_SECRET,
+
     callbacks: {
         async signIn({ user, account }) {
-            // const token = await new SignJWT({})
-            //     .setProtectedHeader({ alg: "HS256" })
-            //     .setJti(nanoid())
-            //     .setIssuedAt()
-            //     .setExpirationTime("1m")
-            //     .sign(new TextEncoder().encode(getJwtSecretKey()));
-
-            // user.access_token =
-
             return true;
         },
         async session(params: { token: JWT; session: Session }) {
             const { session, token } = params;
-            if (token) {
-                session.user.id = token.id;
-                session.user.name = token.name;
-                session.user.email = token.email;
-                session.user.role = token.role;
-                // session.user.access_token = token.access_token;
-                // session.user.refresh_token = token.refresh_token;
-            }
+
+            session.user.id = token.id;
+            session.user.role = token.role;
 
             return session;
         },
