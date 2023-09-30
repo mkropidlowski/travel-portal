@@ -59,6 +59,7 @@ model Reservation {
   totalPrice Int?
   locality String?
   postalCode String?
+  location String?
   firstParticipantName String?
   firstParticipantSurname String?
   firstParticipantGender String?
@@ -69,4 +70,11 @@ model Reservation {
   secondParticipantName String?
   secondParticipantPhone String?
   secondParticipantSurname String?
+  status  ReservationStatus @default(Waiting)
+}
+
+enum ReservationStatus {
+  Waiting
+  Success
+  Rejected
 }

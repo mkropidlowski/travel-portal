@@ -84,6 +84,7 @@ const Offer: FC<BE_Attraction> = ({ _id, name, image, location, currency, totalP
                         totalPrice={adultsPriceCount}
                         numberOfDays={numberOfDays}
                         tripId={_id}
+                        location={location}
                     />
                 </div>
             ) : null}

@@ -1,3 +1,4 @@
+"use client";
 import { FC } from "react";
 import ActionHeader from "./components/actionHeader";
 import Menu from "./components/menu";
@@ -5,18 +6,24 @@ import Heading from "./components/heading";
 import { TravelIcon } from "../icons";
 import Statistics from "./components/statistics";
 import DataTable from "./components/dataTable";
+import LatestActivity from "./components/latestActivity";
+import { use } from "react";
+import { getReservation } from "@/app/helpers/getReservation";
+import { BE_FormReservation } from "@/types/types";
 
 type AdminDashboardProps = {
     session: any;
 };
 
 const AdminDashboard: FC<AdminDashboardProps> = ({ session }) => {
+    const reservationList = use(getReservation());
+
     return (
-        <div className="w-full h-screen flex flex-row justify-between">
+        <div className="w-full h-full flex flex-row justify-between">
             <Menu />
-            <div className="w-full flex flex-col">
+            <div className="ml-[270px] w-[calc(100%-270px)] flex flex-col">
                 <ActionHeader sessionDetails={session} />
-                <div className="flex flex-row w-full p-6">
+                <div className="flex flex-row w-full p-6 gap-5">
                     <div className="flex flex-col gap-5 w-[60%]">
                         <Heading
                             title="Welcome to Travel Portal"
@@ -24,9 +31,11 @@ const AdminDashboard: FC<AdminDashboardProps> = ({ session }) => {
                             icon={<TravelIcon width={200} height={150} />}
                         />
                         <Statistics />
-                        <DataTable />
+                        <DataTable reservations={reservationList} />
                     </div>
-                    <div className="w-[40%]"></div>
+                    <div className="w-[40%]">
+                        <LatestActivity />
+                    </div>
                 </div>
             </div>
         </div>

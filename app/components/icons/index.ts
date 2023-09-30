@@ -2,6 +2,7 @@ export { default as CloseIcon } from "./CloseIcon";
 export { default as Adventure } from "./Adventure";
 export { default as Airplane } from "./Airplane";
 export { default as Checked } from "./Checked";
+export { default as Clock } from "./Clock";
 export { default as Dashboard } from "./Dashboard";
 export { default as Home } from "./Home";
 export { default as Homepage } from "./Homepage";

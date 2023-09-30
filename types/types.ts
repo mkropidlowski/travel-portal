@@ -47,9 +47,10 @@ export type BE_Reservation = {
     dataRange?: string;
     totalPrice?: number;
     numberOfDays?: number;
+    location?: string;
 };
 
-export interface FormReservation {
+export interface BE_FormReservation {
     name?: string;
     surname?: string;
     email?: string;
@@ -64,6 +65,7 @@ export interface FormReservation {
     dataRange?: string;
     totalPrice?: number;
     numberOfDays?: number;
+    location?: string;
     firstParticipantName?: string;
     firstParticipantSurname?: string;
     firstParticipantGender?: string;
