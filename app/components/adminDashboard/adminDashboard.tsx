@@ -4,6 +4,7 @@ import Menu from "./components/menu";
 import Heading from "./components/heading";
 import { TravelIcon } from "../icons";
 import Statistics from "./components/statistics";
+import DataTable from "./components/dataTable";
 
 type AdminDashboardProps = {
     session: any;
@@ -16,13 +17,14 @@ const AdminDashboard: FC<AdminDashboardProps> = ({ session }) => {
             <div className="w-full flex flex-col">
                 <ActionHeader sessionDetails={session} />
                 <div className="flex flex-row w-full p-6">
-                    <div className="w-[60%]">
+                    <div className="flex flex-col gap-5 w-[60%]">
                         <Heading
                             title="Welcome to Travel Portal"
                             descritpion="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio, harum! Autem quisquam consectetur culpa numquam porro blanditiis accusantium repellat mollitia totam beatae."
                             icon={<TravelIcon width={200} height={150} />}
                         />
                         <Statistics />
+                        <DataTable />
                     </div>
                     <div className="w-[40%]"></div>
                 </div>
