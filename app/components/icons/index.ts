@@ -13,4 +13,5 @@ export { default as Reservation } from "./Reservation";
 export { default as Ring } from "./Ring";
 export { default as Settings } from "./Settings";
 export { default as Touris } from "./Touris";
+export { default as TravelIcon } from "./TravelIcon";
 export { default as User } from "./User";
