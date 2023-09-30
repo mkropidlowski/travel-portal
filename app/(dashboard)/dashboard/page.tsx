@@ -1,8 +1,6 @@
 "use client";
 import useCheckIsAdmin from "@/app/helpers/useCheckIsAdmin";
 import { useSession } from "next-auth/react";
-import { signOut } from "next-auth/react";
-import Loading from "./loading";
 import AdminDashboard from "@/app/components/adminDashboard/adminDashboard";
 
 const DashboardPage = () => {
@@ -12,7 +10,7 @@ const DashboardPage = () => {
     return (
         <>
             {isAdmin ? (
-                <AdminDashboard />
+                <AdminDashboard session={session} />
             ) : (
                 <div className="w-full flex flex-col items-center justify-center">Panel uzytkownika</div>
             )}

@@ -7,6 +7,8 @@ export { default as Home } from "./Home";
 export { default as Homepage } from "./Homepage";
 export { default as Map } from "./Map";
 export { default as Mediation } from "./Mediation";
+export { default as Message } from "./Message";
 export { default as Reservation } from "./Reservation";
+export { default as Ring } from "./Ring";
 export { default as Touris } from "./Touris";
 export { default as User } from "./User";
