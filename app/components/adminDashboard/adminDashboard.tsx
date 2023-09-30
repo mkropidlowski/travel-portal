@@ -1,7 +1,11 @@
+import Menu from "./components/menu";
+
 const AdminDashboard = () => {
     return (
-        <div className="w-full h-screen flex flex-row justify-center">
-            <div>tu będzie menu lewe</div>
+        <div className="w-full h-screen flex flex-row justify-between">
+            <div>
+                <Menu />
+            </div>
             <div>tu bedzie dashboard</div>
         </div>
     );

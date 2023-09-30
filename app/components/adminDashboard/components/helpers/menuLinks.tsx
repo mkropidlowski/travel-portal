@@ -1,15 +1,10 @@
-import Home from "@/app/components/icons/Home";
 import Dashboard from "@/app/components/icons/Dashboard";
 import Touris from "@/app/components/icons/Touris";
 import User from "@/app/components/icons/User";
 import Reservation from "@/app/components/icons/Reservation";
+import Homepage from "@/app/components/icons/Homepage";
 
-export const menuLinks = {
-    home: {
-        id: "",
-        icon: <Home />,
-        text: "Home",
-    },
+export const dashboardLinks = {
     dashboard: {
         id: "dashboard",
         icon: <Dashboard />,
@@ -29,5 +24,10 @@ export const menuLinks = {
         id: "reservation",
         icon: <Reservation />,
         text: "Reservation",
+    },
+    homepage: {
+        id: "/",
+        icon: <Homepage />,
+        text: "Main page",
     },
 };

@@ -13,6 +13,7 @@ const config: Config = {
                 black: "#171717",
                 gray: "#DDE6ED",
                 blueSky: "#0ea5e9",
+                dashboardBg: "#f0f5fb",
             },
             screens: {
                 xxs: "416px",
