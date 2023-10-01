@@ -50,18 +50,6 @@ const DataTable: FC<DataTableProps> = ({ reservations }) => {
 
 export default DataTable;
 
-// <tbody className="text-stone-600">
-// <tr className="border-t border-stone-200 hover:bg-stone-100 hover:cursor-pointer leading-[40px]">
-//     <td>Turkey</td>
-//     <td>7</td>
-//     <td>2</td>
-//     <td>1500 $</td>
-//     <td>
-// <button className="w-[100px] h-[30px] bg-gray text-stone-400 flex items-center justify-center m-auto px-5 rounded-3xl font-semibold">
-//     Hold
-// </button>
-//     </td>
-// </tr>
 // <tr className="border-t border-stone-200 hover:bg-stone-100 hover:cursor-pointer leading-[40px]">
 //     <td>Turkey</td>
 //     <td>7</td>
