@@ -8,7 +8,7 @@ const DashboardPage = () => {
     const { data: session } = useSession();
     const isAdmin = useCheckIsAdmin();
 
-    return <>{isAdmin ? <AdminDashboard session={session} /> : <UserDashboard />}</>;
+    return <>{isAdmin ? <AdminDashboard session={session} /> : null}</>;
 };
 
 export default DashboardPage;
