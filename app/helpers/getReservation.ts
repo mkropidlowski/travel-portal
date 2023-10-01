@@ -1,6 +1,4 @@
-import { BE_FormReservation } from "@/types/types";
-
-export const getReservation = async (): Promise<BE_FormReservation> => {
+export const getReservation = async (): Promise<any> => {
     const res = await fetch("/api/reservation", {
         cache: "no-store",
     });

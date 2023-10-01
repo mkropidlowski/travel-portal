@@ -76,6 +76,7 @@ export interface BE_FormReservation {
     secondParticipantName?: string;
     secondParticipantPhone?: string;
     secondParticipantSurname?: string;
+    status?: string;
 }
 
 export interface BE_User {

@@ -1,16 +1,19 @@
 import { FC } from "react";
 
-type StatisticsProps = {};
-// TODO add functions with completed tour, earing money stats
-const Statistics: FC<StatisticsProps> = () => {
+type StatisticsProps = {
+    ammount: number[];
+    tripCount: number;
+};
+
+const Statistics: FC<StatisticsProps> = ({ ammount, tripCount }) => {
     return (
         <div className="w-full h-[100px] flex gap-6">
             <div className="w-[200px] bg-white rounded-2xl p-3 hover:cursor-pointer hover:bg-stone-200">
-                <h2 className="text-[30px]">220</h2>
-                <h3 className="text-[15px] text-slate-500">Completed tour</h3>
+                <h2 className="text-[30px]">{tripCount}</h2>
+                <h3 className="text-[15px] text-slate-500">Tour count</h3>
             </div>
             <div className="w-[200px] bg-white rounded-2xl p-3 hover:cursor-pointer hover:bg-stone-200">
-                <h2 className="text-[30px]">35.500 $</h2>
+                <h2 className="text-[30px]">{ammount} $</h2>
                 <h3 className="text-[15px] text-slate-500">Earning money</h3>
             </div>
         </div>

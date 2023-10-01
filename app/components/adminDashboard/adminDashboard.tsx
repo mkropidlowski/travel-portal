@@ -9,7 +9,6 @@ import DataTable from "./components/dataTable";
 import LatestActivity from "./components/latestActivity";
 import { use } from "react";
 import { getReservation } from "@/app/helpers/getReservation";
-import { BE_FormReservation } from "@/types/types";
 
 type AdminDashboardProps = {
     session: any;
@@ -17,6 +16,12 @@ type AdminDashboardProps = {
 
 const AdminDashboard: FC<AdminDashboardProps> = ({ session }) => {
     const reservationList = use(getReservation());
+
+    let earningMoneyCount = reservationList.map((price: { totalPrice: number }) => price.totalPrice);
+
+    const ammount = earningMoneyCount.reduce((a: number, b: number) => {
+        return a + b;
+    });
 
     return (
         <div className="w-full h-full flex flex-row justify-between">
@@ -30,7 +35,7 @@ const AdminDashboard: FC<AdminDashboardProps> = ({ session }) => {
                             descritpion="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio, harum! Autem quisquam consectetur culpa numquam porro blanditiis accusantium repellat mollitia totam beatae."
                             icon={<TravelIcon width={200} height={150} />}
                         />
-                        <Statistics />
+                        <Statistics ammount={ammount} tripCount={earningMoneyCount.length} />
                         <DataTable reservations={reservationList} />
                     </div>
                     <div className="w-[40%]">

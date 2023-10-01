@@ -11,17 +11,17 @@ export const dashboardLinks = {
         text: "Dashboard",
     },
     tours: {
-        id: "tours",
+        id: "dashboard/tours",
         icon: <Touris />,
         text: "Tours",
     },
     users: {
-        id: "users",
+        id: "dashboard/users",
         icon: <User />,
         text: "Users",
     },
     reservations: {
-        id: "reservation",
+        id: "dashboard/reservation",
         icon: <Reservation />,
         text: "Reservation",
     },
