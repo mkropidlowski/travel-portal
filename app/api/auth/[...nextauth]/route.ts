@@ -23,9 +23,6 @@ export const authOptions: AuthOptions = {
     secret: process.env.NEXTAUTH_SECRET,
 
     callbacks: {
-        async signIn({ user, account }) {
-            return true;
-        },
         async session(params: { token: JWT; session: Session }) {
             const { session, token } = params;
 
