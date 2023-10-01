@@ -6,6 +6,7 @@ import { useSession } from "next-auth/react";
 import Tours from "./components/tours";
 import Users from "./components/users";
 import Reservations from "./components/reservations";
+import AddAttraction from "./components/addAttraction";
 
 const Page = ({ params }: { params: { slug: string } }) => {
     const { data: session } = useSession();
@@ -22,6 +23,9 @@ const Page = ({ params }: { params: { slug: string } }) => {
             break;
         case "reservation":
             content = <Reservations />;
+            break;
+        case "add-attraction":
+            content = <AddAttraction />;
             break;
         default:
             break;

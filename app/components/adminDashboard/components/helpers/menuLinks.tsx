@@ -1,8 +1,4 @@
-import Dashboard from "@/app/components/icons/Dashboard";
-import Touris from "@/app/components/icons/Touris";
-import User from "@/app/components/icons/User";
-import Reservation from "@/app/components/icons/Reservation";
-import Homepage from "@/app/components/icons/Homepage";
+import { Add, Homepage, Reservation, User, Touris, Dashboard } from "@/app/components/icons";
 
 export const dashboardLinks = {
     dashboard: {
@@ -24,6 +20,11 @@ export const dashboardLinks = {
         id: "dashboard/reservation",
         icon: <Reservation />,
         text: "Reservation",
+    },
+    addAttraction: {
+        id: "dashboard/add-attraction",
+        icon: <Add />,
+        text: "Add attraction",
     },
     homepage: {
         id: "/",
