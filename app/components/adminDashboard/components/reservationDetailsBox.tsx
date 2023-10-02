@@ -71,20 +71,24 @@ const ReservationDetailsBox: FC<BE_FormReservation> = ({
                         </div>
                         <h2 className="text-sm font-medium p-2">Tourist information: </h2>
                         <div className="flex w-full items-center">
-                            <div className="flex flex-wrap w-[40%] gap-2">
-                                <Paragraph text="Name" secondText={firstParticipantName} />
-                                <Paragraph text="Surname" secondText={firstParticipantSurname} />
-                                <Paragraph text="Birth day" secondText={firstParticipantBirthDate} />
-                                <Paragraph text="Phone" secondText={firstParticipantPhone} />
-                                <Paragraph text="Gender" secondText={firstParticipantGender} />
-                            </div>
-                            <div className="flex flex-wrap w-[40%] gap-2">
-                                <Paragraph text="Name" secondText={secondParticipantName} />
-                                <Paragraph text="Surname" secondText={secondParticipantSurname} />
-                                <Paragraph text="Birth day" secondText={secondParticipantBirthDate} />
-                                <Paragraph text="Phone" secondText={secondParticipantPhone} />
-                                <Paragraph text="Gender" secondText={secondParticipantGender} />
-                            </div>
+                            {firstParticipantName ? (
+                                <div className="flex flex-wrap w-[40%] gap-2">
+                                    <Paragraph text="Name" secondText={firstParticipantName} />
+                                    <Paragraph text="Surname" secondText={firstParticipantSurname} />
+                                    <Paragraph text="Birth day" secondText={firstParticipantBirthDate} />
+                                    <Paragraph text="Phone" secondText={firstParticipantPhone} />
+                                    <Paragraph text="Gender" secondText={firstParticipantGender} />
+                                </div>
+                            ) : null}
+                            {secondParticipantName ? (
+                                <div className="flex flex-wrap w-[40%] gap-2">
+                                    <Paragraph text="Name" secondText={secondParticipantName} />
+                                    <Paragraph text="Surname" secondText={secondParticipantSurname} />
+                                    <Paragraph text="Birth day" secondText={secondParticipantBirthDate} />
+                                    <Paragraph text="Phone" secondText={secondParticipantPhone} />
+                                    <Paragraph text="Gender" secondText={secondParticipantGender} />
+                                </div>
+                            ) : null}
                         </div>
                     </div>
                 ) : null}

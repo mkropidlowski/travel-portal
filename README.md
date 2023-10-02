@@ -27,9 +27,11 @@
 **The project is constantly being developed.**
 
 Dashboard:
-![5_panel](https://github.com/mkropidlowski/travel-portal/assets/16814863/6dd8156f-022e-42b3-84d8-c00a5d3db048)
+![gggg](https://github.com/mkropidlowski/travel-portal/assets/16814863/8ba46a7b-c213-422f-8a7a-4c0fc015b836)
 
 ![screencapture-localhost-3000-dashboard-tours-2023-10-02-17_53_49](https://github.com/mkropidlowski/travel-portal/assets/16814863/1e84aac5-3b31-4a8b-a94d-74624aec061e)
+
+![sss](https://github.com/mkropidlowski/travel-portal/assets/16814863/ddb72f4b-2812-42e9-b0eb-f67a90f1b983)
 
 Booking trip:
 ![2](https://github.com/mkropidlowski/travel-portal/assets/16814863/665d5f47-2c63-412a-8327-9b6c9f93b6af)
