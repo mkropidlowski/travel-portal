@@ -20,3 +20,4 @@ export { default as Touris } from "./Touris";
 export { default as TravelIcon } from "./TravelIcon";
 export { default as Trip } from "./Trip";
 export { default as User } from "./User";
+export { default as UserHeading } from "./UserHeading";

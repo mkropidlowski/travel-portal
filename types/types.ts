@@ -81,6 +81,7 @@ export interface BE_FormReservation {
 }
 
 export interface BE_User {
+    map(arg0: (user: BE_User) => import("react").JSX.Element): import("react").ReactNode;
     id: string;
     name: string;
     email: string;
