@@ -78,3 +78,21 @@ enum ReservationStatus {
   Success
   Rejected
 }
+
+model Attaction {
+   id String  @id @default(auto()) @map("_id") @db.ObjectId
+   name String?
+   location String?
+   locationGeo String?
+   image String?
+   hotelAmenities String[]
+   pricePerDay Int?
+   currency String?
+   photos String[]
+   reviews Int?
+   averageGrade Float?
+   isAllInclusive Boolean?
+   allAmenities Json?
+   description String?
+   isFreeCancelation Boolean?
+}

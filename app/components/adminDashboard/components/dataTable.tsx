@@ -16,10 +16,11 @@ const DataTable: FC<DataTableProps> = ({ reservations }) => {
         Rejected: "bg-red-400 text-red-800",
     };
     return (
-        <div className="w-full bg-white rounded-2xl">
+        <div className="w-full bg-white rounded-2xl shadow-md">
             <Heading
                 title="List of trip status"
                 descritpion="Lorem ipsum is simply dumy text of the printing blah blah typesetting."
+                className="shadow-none"
             />
             <table className="w-[90%] m-auto text-base text-center text-gray-500 dark:text-gray-400">
                 <thead className="text-lg text-stone-600 bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center border-b-[2px] border-gray">

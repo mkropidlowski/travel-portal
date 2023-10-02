@@ -7,15 +7,7 @@ const AttractionPage = async () => {
     return (
         <div className="max-w-[1240px] flex md:flex-row flex-col flex-wrap justify-center items-center m-auto mt-[135px] gap-[35px]">
             {attraction.documents.map((attraction: BE_Attraction) => (
-                <Attraction
-                    key={attraction?._id}
-                    _id={attraction?._id}
-                    name={attraction?.name}
-                    location={attraction?.location}
-                    pricePerDay={attraction?.pricePerDay}
-                    image={attraction?.image}
-                    currency={attraction?.currency}
-                />
+                <Attraction key={attraction?._id} {...attraction} />
             ))}
         </div>
     );

@@ -45,7 +45,7 @@ const ReservationDetailsBox: FC<BE_FormReservation> = ({
     };
 
     return (
-        <div className="flex flex-row w-full h-fit bg-slate-200 rounded-2xl p-3">
+        <div className="flex flex-row w-full h-fit bg-slate-200 rounded-2xl p-3 shadow">
             <div className="flex flex-col w-full justify-between gap-3">
                 <div className="flex flex-wrap gap-1" key={tripId}>
                     <Paragraph text="TripID" secondText={tripId} />

@@ -8,17 +8,17 @@ const ActionHeader = ({ sessionDetails }: { sessionDetails: any }) => {
                     <input
                         type="text"
                         placeholder="Search..."
-                        className="w-[260px] px-4 p-1 rounded-2xl leading-[25px] text-[15px]"
+                        className="w-[260px] px-4 p-1 rounded-2xl leading-[25px] text-[15px] shadow"
                     />
                     <div className="flex items-center gap-3">
                         <label className="font-medium">From: </label>
-                        <input type="date" className="w-[200px] rounded-2xl px-4 p-1 leading-[30px]" />
+                        <input type="date" className="w-[200px] rounded-2xl px-4 p-1 leading-[30px] shadow" />
                         <label className="font-medium">To: </label>
-                        <input type="date" className="w-[200px] rounded-2xl px-4 p-1 leading-[30px]" />
+                        <input type="date" className="w-[200px] rounded-2xl px-4 p-1 leading-[30px] shadow" />
                     </div>
                 </form>
             </div>
-            <div className="flex items-center justify-around p-3 bg-white rounded-2xl w-[200px] h-[45px]">
+            <div className="flex items-center justify-around p-3 bg-white rounded-2xl w-[200px] h-[45px] shadow">
                 <div className="hover:cursor-pointer">
                     <Message width={20} height={20} />
                 </div>

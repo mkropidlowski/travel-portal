@@ -3,8 +3,12 @@ import Heading from "./heading";
 
 const LatestActivity = () => {
     return (
-        <div className="bg-white rounded-2xl w-full">
-            <Heading title="Latest Activity" descritpion="Here you can find latest reservation." />
+        <div className="bg-white rounded-2xl w-full shadow-md">
+            <Heading
+                title="Latest Activity"
+                descritpion="Here you can find latest reservation."
+                className="shadow-none"
+            />
             <div className="flex flex-col px-6 gap-3">
                 <div className="flex gap-5 items-center">
                     <Clock width={25} height={25} className="bg-gray p-1 rounded-md" />

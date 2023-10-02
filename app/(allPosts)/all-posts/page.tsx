@@ -7,7 +7,7 @@ const AllPostPage = async () => {
     return (
         <div className="max-w-[1240px] flex md:flex-row flex-col flex-wrap justify-center items-center m-auto mt-[135px] gap-[45px]">
             {posts.documents.map((post: PostProps) => (
-                <Post key={post._id} _id={post._id} title={post.title} date={post.date} image={post.image} />
+                <Post key={post._id} {...post} />
             ))}
         </div>
     );
