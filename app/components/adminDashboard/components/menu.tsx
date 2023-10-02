@@ -2,6 +2,7 @@ import { FC } from "react";
 import { dashboardLinks } from "./helpers/menuLinks";
 import Link from "next/link";
 import { Settings, Logout, Airplane } from "../../icons";
+import { signOut } from "next-auth/react";
 
 type MenuProps = {
     links?: Record<string, { id: string; text: string; icon: React.ReactNode }>;
@@ -38,7 +39,10 @@ const Menu: FC<MenuProps> = ({ links = dashboardLinks }) => {
                         <span>Settings</span>
                     </button>
                 </Link>
-                <button className="flex items-center font-medium w-[150px] rounded-2xl hover:bg-slate-300 p-[3px]">
+                <button
+                    className="flex items-center font-medium w-[150px] rounded-2xl hover:bg-slate-300 p-[3px]"
+                    onClick={() => signOut({ redirect: true, callbackUrl: "/" })}
+                >
                     <span className="p-2">
                         <Logout />
                     </span>
