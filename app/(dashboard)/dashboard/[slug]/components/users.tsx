@@ -7,7 +7,6 @@ import { use } from "react";
 
 const Users = () => {
     const users = use(getUsers());
-
     return (
         <div className="flex flex-col gap-4">
             <Heading

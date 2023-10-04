@@ -7,6 +7,7 @@ import Tours from "./components/tours";
 import Users from "./components/users";
 import Reservations from "./components/reservations";
 import AddAttraction from "./components/addAttraction";
+import Settings from "./components/settings";
 
 const Page = ({ params }: { params: { slug: string } }) => {
     const { data: session } = useSession();
@@ -27,6 +28,8 @@ const Page = ({ params }: { params: { slug: string } }) => {
         case "add-attraction":
             content = <AddAttraction />;
             break;
+        case "settings":
+            content = <Settings />;
         default:
             break;
     }

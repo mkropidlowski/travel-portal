@@ -2,6 +2,7 @@
 import { FC, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { CloseIcon } from "../icons";
+import clsx from "clsx";
 
 type ModalProps = {
     show: boolean;
@@ -9,9 +10,27 @@ type ModalProps = {
     title?: string;
     children: React.ReactNode;
     maxWidth: number;
+    isDefaultSize?: boolean;
+    maxChildrenHeight?: string;
+    isTransparentBackground?: boolean;
+    modalScreenBackgroundColor?: string;
+    isBackgroundBlur?: boolean;
     bgColor: string;
 };
-const ModalWrapper: FC<ModalProps> = ({ show, onClose, children, title, bgColor, maxWidth, ...rest }) => {
+const ModalWrapper: FC<ModalProps> = ({
+    show,
+    onClose,
+    children,
+    title,
+    bgColor,
+    maxWidth,
+    maxChildrenHeight,
+    isTransparentBackground,
+    modalScreenBackgroundColor,
+    isBackgroundBlur,
+    isDefaultSize,
+    ...rest
+}) => {
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
@@ -29,19 +48,30 @@ const ModalWrapper: FC<ModalProps> = ({ show, onClose, children, title, bgColor,
 
     const ModalComponent = () => (
         <div
-            className="fixed bg-transparent flex items-center justify-center w-screen h-full top-0 left-0 z-[1000]"
+            className={clsx(
+                `fixed flex items-center justify-center w-screen h-full top-0 left-0 z-[1000]`,
+                isTransparentBackground ? "bg-transparent" : modalScreenBackgroundColor,
+                isBackgroundBlur ? "backdrop-blur" : ""
+            )}
             onClick={handleOverlayClick}
         >
             <div
-                className="p-4 rounded-lg border-[3px] border-stone-300 shadow-md overflow-x-auto"
+                className="p-4 rounded-lg border-[2px] border-stone-300 shadow-md overflow-x-auto"
                 style={{ maxWidth: `${maxWidth}px`, background: `${bgColor}` }}
                 {...rest}
             >
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center p-2">
                     <h2 className="font-medium text-base">{title}</h2>
                     <CloseIcon onClick={handleCloseClick} width={25} height={25} className="cursor-pointer" />
                 </div>
-                <div className="p-4 overflow-y-auto max-h-[60vh]">{children}</div>
+                <div
+                    className={clsx(
+                        `"p-4 overflow-y-auto`,
+                        isDefaultSize ? "max-h-[60vh]" : `h-[${maxChildrenHeight}]`
+                    )}
+                >
+                    {children}
+                </div>
             </div>
         </div>
     );

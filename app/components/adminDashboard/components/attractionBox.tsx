@@ -24,11 +24,20 @@ const AttractionBox: FC<BE_Attraction> = ({
     isAllInclusive,
     isFreeCancellation,
 }) => {
+    const [selectedImageIndex, setSelectedImageIndex] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const router = useRouter();
 
     const handleRouterToFullOffer = (tripId: string) => {
         router.push(`/attraction/${tripId}`);
+    };
+
+    const handleImageFullScreen = (index: any) => {
+        setSelectedImageIndex(index);
+    };
+
+    const closeImageFullScreen = () => {
+        setSelectedImageIndex(null);
     };
     return (
         <div
@@ -78,6 +87,8 @@ const AttractionBox: FC<BE_Attraction> = ({
                 show={showModal}
                 title="All information about trip."
                 maxWidth={600}
+                isDefaultSize
+                isBackgroundBlur
                 bgColor="whitesmoke"
             >
                 <div className="w-full">
@@ -89,7 +100,10 @@ const AttractionBox: FC<BE_Attraction> = ({
                                     alt={""}
                                     fill
                                     style={{ objectFit: "cover" }}
+                                    quality={100}
                                     className="rounded-lg"
+                                    key={i}
+                                    onClick={() => handleImageFullScreen(i)}
                                 />
                             </div>
                         ))}
@@ -124,6 +138,27 @@ const AttractionBox: FC<BE_Attraction> = ({
                         </Button>
                     </div>
                 </div>
+            </ModalWrapper>
+
+            <ModalWrapper
+                onClose={closeImageFullScreen}
+                show={selectedImageIndex !== null}
+                maxWidth={800}
+                maxChildrenHeight="90vh"
+                isBackgroundBlur
+                bgColor="whitesmoke"
+            >
+                {selectedImageIndex !== null && photos && photos[selectedImageIndex] && (
+                    <Image
+                        src={photos[selectedImageIndex]}
+                        alt=""
+                        style={{ objectFit: "cover" }}
+                        quality={100}
+                        className="rounded-lg"
+                        width={700}
+                        height={700}
+                    />
+                )}
             </ModalWrapper>
         </div>
     );

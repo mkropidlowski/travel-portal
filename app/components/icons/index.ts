@@ -15,6 +15,7 @@ export { default as Message } from "./Message";
 export { default as Reservation } from "./Reservation";
 export { default as Ring } from "./Ring";
 export { default as Settings } from "./Settings";
+export { default as SettingsHeading } from "./SettingsHeading";
 export { default as Showmore } from "./Showmore";
 export { default as Touris } from "./Touris";
 export { default as TravelIcon } from "./TravelIcon";

@@ -3,10 +3,11 @@ import Button from "@/app/components/button/button";
 import { Checked } from "@/app/components/icons";
 import { BE_Attraction } from "@/types/types";
 import Image from "next/image";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { amenitiesCategory } from "./helpers/data";
 import { useRouter } from "next/navigation";
 import ErrorBox from "@/app/components/atoms/errorBox";
+import ModalWrapper from "@/app/components/modal/modalWrapper";
 
 const AttractionDetails: FC<BE_Attraction> = ({
     _id,
@@ -24,6 +25,7 @@ const AttractionDetails: FC<BE_Attraction> = ({
     currency,
     isFreeCancellation,
 }) => {
+    const [selectedImageIndex, setSelectedImageIndex] = useState(null);
     const router = useRouter();
     const minimumDays = (pricePerDay as number) * 5;
     const amenitiesMap: any = {
@@ -36,6 +38,13 @@ const AttractionDetails: FC<BE_Attraction> = ({
 
     const handleBookAttraction = () => {
         router.replace(`/book-attraction/${_id}`);
+    };
+    const handleImageFullScreen = (index: any) => {
+        setSelectedImageIndex(index);
+    };
+
+    const closeImageFullScreen = () => {
+        setSelectedImageIndex(null);
     };
     return (
         <>
@@ -117,6 +126,8 @@ const AttractionDetails: FC<BE_Attraction> = ({
                                         fill
                                         style={{ objectFit: "cover" }}
                                         className="rounded-lg"
+                                        key={i}
+                                        onClick={() => handleImageFullScreen(i)}
                                     />
                                 </div>
                             ))}
@@ -171,6 +182,27 @@ const AttractionDetails: FC<BE_Attraction> = ({
                     returnHref="/"
                 />
             )}
+
+            <ModalWrapper
+                onClose={closeImageFullScreen}
+                show={selectedImageIndex !== null}
+                maxWidth={800}
+                maxChildrenHeight="90vh"
+                isBackgroundBlur
+                bgColor="whitesmoke"
+            >
+                {selectedImageIndex !== null && photos && photos[selectedImageIndex] && (
+                    <Image
+                        src={photos[selectedImageIndex]}
+                        alt=""
+                        style={{ objectFit: "cover" }}
+                        quality={100}
+                        className="rounded-lg"
+                        width={700}
+                        height={700}
+                    />
+                )}
+            </ModalWrapper>
         </>
     );
 };

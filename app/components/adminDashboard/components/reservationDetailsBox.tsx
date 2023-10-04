@@ -57,8 +57,6 @@ const ReservationDetailsBox: FC<BE_FormReservation> = ({
                     <Paragraph text="House number" secondText={houseNumber} />
                     <Paragraph text="Locality" secondText={locality} />
                     <Paragraph text="Postal code" secondText={postalCode} />
-                    <Paragraph text="Birth date" secondText={birthDate} />
-                    <Paragraph text="Gender" secondText={gender} />
                 </div>
                 {modalOpen ? (
                     <div className="flex flex-col gap-1">
