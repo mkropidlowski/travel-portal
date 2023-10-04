@@ -1,12 +1,17 @@
 "use client";
 import { BE_FormReservation } from "@/types/types";
-import { FC, ReactNode, useState } from "react";
+import { FC, useState } from "react";
 import Paragraph from "../../atoms/paragraph";
 import { Showmore } from "../../icons";
+import axios from "axios";
+import toast from "react-hot-toast";
+import clsx from "clsx";
 
 type STATUS = "Waiting" | "Success" | "Rejected";
+const availableStatuses = ["Waiting", "Success", "Rejected"];
 
 const ReservationDetailsBox: FC<BE_FormReservation> = ({
+    id,
     name,
     surname,
     email,
@@ -15,8 +20,6 @@ const ReservationDetailsBox: FC<BE_FormReservation> = ({
     houseNumber,
     locality,
     postalCode,
-    birthDate,
-    gender,
     tripId,
     dataRange,
     totalPrice,
@@ -35,6 +38,7 @@ const ReservationDetailsBox: FC<BE_FormReservation> = ({
     status,
 }) => {
     const [modalOpen, setModalOpen] = useState<boolean>(false);
+    const [selectedStatus, setSelectedStatus] = useState<string>(status as any);
     const handleModalToggle = () => {
         setModalOpen(!modalOpen);
     };
@@ -44,6 +48,17 @@ const ReservationDetailsBox: FC<BE_FormReservation> = ({
         Rejected: "bg-red-400 text-red-800",
     };
 
+    const handleStatusChange = async (reservationId: any) => {
+        try {
+            await axios.patch(`/api/reservation/${reservationId}`, {
+                status: selectedStatus,
+            });
+            toast.success("Status changed.");
+        } catch (error) {
+            console.error("ERROR", error);
+            toast.error("Sorry, something went wrong.");
+        }
+    };
     return (
         <div className="flex flex-row w-full h-fit bg-slate-200 rounded-2xl p-3 shadow">
             <div className="flex flex-col w-full justify-between gap-3">
@@ -91,13 +106,28 @@ const ReservationDetailsBox: FC<BE_FormReservation> = ({
                     </div>
                 ) : null}
             </div>
-            <div className="flex items-center justify-center gap-4 h-8">
-                <button
-                    className={`w-[100px] h-[30px] flex items-center justify-center m-auto px-5 rounded-3xl font-semibold ${
-                        statusClassMap[status as STATUS]
-                    }`}
+            <div className="flex items-center justify-center gap-2 h-8">
+                <select
+                    value={selectedStatus}
+                    onChange={(e) => setSelectedStatus(e.target.value)}
+                    className={clsx(
+                        `w-[140px] h-[30px] flex items-center justify-center m-auto px-5 rounded-md font-semibold`,
+                        statusClassMap[selectedStatus as STATUS]
+                    )}
                 >
-                    {status}
+                    {availableStatuses.map((statusOption) => (
+                        <option key={statusOption} value={statusOption}>
+                            {statusOption}
+                        </option>
+                    ))}
+                </select>
+                <button
+                    className={
+                        "w-[50px] h-[30px] flex items-center justify-center m-auto px-5 rounded-md font-semibold bg-slate-700 text-white"
+                    }
+                    onClick={() => handleStatusChange(id)}
+                >
+                    Save
                 </button>
                 <Showmore width={20} height={20} className="hover:cursor-pointer" onClick={handleModalToggle} />
             </div>

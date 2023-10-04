@@ -52,6 +52,7 @@ export type BE_Reservation = {
 };
 
 export interface BE_FormReservation {
+    id?: string;
     name?: string;
     surname?: string;
     email?: string;
