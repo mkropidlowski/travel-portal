@@ -10,7 +10,7 @@ const Blog = async () => {
         <div className="w-full flex flex-col gap-7 justify-center items-center">
             <div className="h-full flex flex-col md:flex-row flex-wrap justify-center items-center m-auto mt-[35px] gap-[45px]">
                 {posts.documents.map((post: PostProps) => (
-                    <Post key={post._id} _id={post._id} title={post.title} date={post.date} image={post.image} />
+                    <Post key={post._id} {...post} />
                 ))}
             </div>
             <div>
