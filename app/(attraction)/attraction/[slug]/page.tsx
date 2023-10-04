@@ -3,12 +3,13 @@ import AttractionDetails from "./components/AttractionDetails";
 
 const AttractionPage = async ({ params }: { params: { slug: string } }) => {
     const slug = decodeURIComponent(params.slug);
-    const attraction = await getSingleRecord(slug, "attraction");
+    const attraction = await getSingleRecord(slug, "Attaction");
 
     return (
         <div className="max-w-[1200px] flex flex-col items-center justify-center relative top-[130px]">
             <AttractionDetails
                 _id={slug}
+                id={slug}
                 name={attraction.document?.name}
                 description={attraction.document?.description}
                 image={attraction.document?.image}

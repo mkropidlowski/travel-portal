@@ -47,7 +47,7 @@ export async function POST(request: Request) {
 
 export async function GET() {
     try {
-        const attraction = await prisma.attaction.findMany();
+        const attraction = await prisma.attaction.findMany({});
         return NextResponse.json(attraction);
     } catch (err) {
         return NextResponse.json({ message: "GET ERROR" }, { status: 500 });

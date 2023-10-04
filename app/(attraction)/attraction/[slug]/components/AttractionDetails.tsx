@@ -11,6 +11,7 @@ import ModalWrapper from "@/app/components/modal/modalWrapper";
 
 const AttractionDetails: FC<BE_Attraction> = ({
     _id,
+    id,
     name,
     description,
     allAmenities,

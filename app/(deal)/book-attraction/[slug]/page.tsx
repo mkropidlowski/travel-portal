@@ -5,7 +5,7 @@ const BookingDetails = dynamic(() => import("../[slug]/components/BookingDetails
 
 const BookAttractionPage = async ({ params }: { params: { slug: string } }) => {
     const slug = decodeURIComponent(params.slug);
-    const attraction = await getSingleRecord(slug, "attraction");
+    const attraction = await getSingleRecord(slug, "Attaction");
 
     return (
         <div className="md:min-w-[1200px] w-[320px] flex flex-col items-center justify-center relative top-[150px]">

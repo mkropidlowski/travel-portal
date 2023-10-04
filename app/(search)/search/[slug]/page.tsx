@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const SearchPage = async ({ params }: { params: { slug: string } }) => {
     const slug = decodeURIComponent(params.slug);
-    const attraction = await getDataFromCollection("attraction");
+    const attraction = await getDataFromCollection("Attaction");
 
     const filterAttraction = attraction.documents.filter((filterRecords: any) => filterRecords.locationGeo === slug);
 
