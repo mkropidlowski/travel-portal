@@ -5,7 +5,7 @@ import Button from "../button/button";
 import Link from "next/link";
 
 const PopularPlaces = async () => {
-    const attraction = await getDataFromCollection("attraction", 3);
+    const attraction = await getDataFromCollection("Attaction", 3);
     return (
         <div className="w-full flex flex-col gap-8 justify-center items-center">
             <div className="flex md:flex-row flex-col justify-center items-center m-auto mt-[35px] gap-[35px]">

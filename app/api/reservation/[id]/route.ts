@@ -1,16 +1,12 @@
-import { ReservationStatus } from "@prisma/client";
 import prisma from "@/app/libs/prismadb";
 import { NextResponse } from "next/server";
 
 export async function PATCH(request: Request, { params }: { params: { id: string } }) {
-    const ids = params.id;
+    const id = params.id;
     let json = await request.json();
-
-    console.log(ids, json);
-
     try {
         const reservationStatus = await prisma.reservation.update({
-            where: { id: ids },
+            where: { id },
             data: json,
         });
         return NextResponse.json(reservationStatus);
