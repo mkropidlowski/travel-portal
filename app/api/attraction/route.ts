@@ -9,16 +9,16 @@ export async function POST(request: Request) {
             location,
             locationGeo,
             image,
-            hotelAmenities,
+            hotelAmenities, // arrar with amenities
             pricePerDay,
-            currency,
-            photos,
+            currency, // option
+            photos, // array with src img
             reviews,
             averageGrade,
-            isAllInclusive,
-            allAmenities,
+            isAllInclusive, // checkbox
+            allAmenities, // coś wymyśleć
             description,
-            isFreeCancelation,
+            isFreeCancelation, // checkbox
         } = body;
 
         const newAttraction = await prisma.attaction.create({

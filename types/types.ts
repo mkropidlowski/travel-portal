@@ -3,7 +3,7 @@ import { StaticImageData } from "next/image";
 
 export type BE_Attraction = {
     [x: string]: any;
-    _id: string;
+    _id?: string;
     id?: string;
     name: string;
     location?: string;
@@ -17,7 +17,7 @@ export type BE_Attraction = {
     reviews?: number;
     averageGrade?: string;
     isAllInclusive?: boolean;
-    isFreeCancellation?: boolean;
+    isFreeCancelation?: boolean;
     dateRange?: string;
     totalPrice?: number;
     numberOfDays?: number;

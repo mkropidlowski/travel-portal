@@ -24,7 +24,7 @@ const AttractionDetails: FC<BE_Attraction> = ({
     reviews,
     averageGrade,
     currency,
-    isFreeCancellation,
+    isFreeCancelation,
 }) => {
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
     const router = useRouter();
@@ -97,7 +97,7 @@ const AttractionDetails: FC<BE_Attraction> = ({
 
                                         <p className="text-green-900 flex items-center gap-2">
                                             <Checked className="w-[24px] h-[24px]" />
-                                            {isFreeCancellation ? "Free cancellation" : "Paid cancellation"}
+                                            {isFreeCancelation ? "Free cancellation" : "Paid cancellation"}
                                         </p>
                                     </div>
                                     <div className="mt-3">

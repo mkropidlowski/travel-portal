@@ -23,7 +23,7 @@ const AttractionPage = async ({ params }: { params: { slug: string } }) => {
                 reviews={attraction.document?.reviews}
                 averageGrade={attraction.document?.averageGrade}
                 isAllInclusive={attraction.document?.isAllInclusive}
-                isFreeCancellation={attraction.document?.isFreeCancellation}
+                isFreeCancelation={attraction.document?.isFreeCancelation}
                 allAmenities={attraction.document?.allAmenities}
             />
         </div>
